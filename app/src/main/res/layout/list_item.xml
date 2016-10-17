@@ -7,24 +7,38 @@
     android:padding="16dp">
 
     <TextView
-        android:id="@+id/magnitude_view"
+        android:id="@+id/magnitude"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_weight="1"
         tools:text="7.9" />
 
     <TextView
-        android:id="@+id/location_view"
+        android:id="@+id/location_offset"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        tools:text="34km N of" />
+
+    <TextView
+        android:id="@+id/primary_location"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_weight="1"
         tools:text="Houston" />
 
     <TextView
-        android:id="@+id/date_view"
+        android:id="@+id/date"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_weight="1"
         tools:text="Feb. 14, 2016" />
+
+    <TextView
+        android:id="@+id/time"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        tools:text="3:00 PM" />
 
 </LinearLayout>

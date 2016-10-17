@@ -17,7 +17,10 @@ package com.example.android.quakereport;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ListView;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 
@@ -30,16 +33,8 @@ public class EarthquakeActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.earthquake_activity);
 
-        // Create a fake list of earthquake locations.
-        ArrayList<Earthquake> earthquakes = new ArrayList<>();
-        earthquakes.add(new Earthquake("7.2","San Francisco","Oct 28, 1982"));
-        earthquakes.add(new Earthquake("5.2","Houston","Nov 24, 1982"));
-        earthquakes.add(new Earthquake("9.2","Tokyo","Dec 4, 1990"));
-        earthquakes.add(new Earthquake("9.5","Denver","Apr 7, 1982"));
-        earthquakes.add(new Earthquake("7.9","Mexico City","Mar 18, 1995"));
-        earthquakes.add(new Earthquake("8.2","Millbrook","July 5, 1950"));
-        earthquakes.add(new Earthquake("8.3","Tampa","June 24, 2016"));
-        earthquakes.add(new Earthquake("6.3","Oklahoma City","Sept 19, 1983"));
+        // Create a fake list of earthquakes.
+        ArrayList<Earthquake> earthquakes = QueryUtils.extractEarthquakes();
 
         // Find a reference to the {@link ListView} in the layout
         ListView earthquakeListView = (ListView) findViewById(R.id.list);
@@ -50,5 +45,13 @@ public class EarthquakeActivity extends AppCompatActivity {
         // Set the adapter on the {@link ListView}
         // so the list can be populated in the user interface
         earthquakeListView.setAdapter(adapter);
+
+        earthquakeListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                Toast.makeText(EarthquakeActivity.this, "You're the man!", Toast.LENGTH_SHORT).show();
+            }
+        });
+
     }
 }
